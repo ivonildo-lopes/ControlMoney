@@ -1,0 +1,5 @@
+CREATE TABLE categorias (
+id bigint(20) primary key AUTO_INCREMENT,
+nome varchar(100) not null 
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
