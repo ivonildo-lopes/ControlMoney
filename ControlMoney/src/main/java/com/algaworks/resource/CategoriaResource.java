@@ -1,7 +1,6 @@
 package com.algaworks.resource;
 
 import java.io.Serializable;
-import java.net.URI;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,7 +14,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import com.algaworks.service.CategoriaService;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
