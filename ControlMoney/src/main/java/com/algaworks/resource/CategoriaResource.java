@@ -92,19 +92,15 @@ public class CategoriaResource implements Serializable {
 
 	@DeleteMapping(value = "/{id}")
 	public ResponseDto delete(@PathVariable Long id, HttpServletResponse response) {
-		try {
 			this.service.delete(id);
-			return ResponseDto.response(null,HttpStatus.OK,"Categoria deletada: ");
-		}catch (Exception e) {
-			return ResponseDto.response(null,HttpStatus.NO_CONTENT,"Erro ao tentar excluir categoria!");
-		}
+			return ResponseDto.response(null,HttpStatus.NO_CONTENT,"Categoria deletada: ");
 	}
 
 	@DeleteMapping(value = "/")
 	public ResponseDto deleteAll(@RequestBody List<Long> ids, HttpServletResponse response) {
 		try {
 			this.service.deleteAll(ids);
-			return ResponseDto.response(null,HttpStatus.OK,"Categorias deletadas: ");
+			return ResponseDto.response(null,HttpStatus.NO_CONTENT,"Categorias deletadas: ");
 		}catch (Exception e) {
 			return ResponseDto.response(null,HttpStatus.NO_CONTENT,"Erro ao tentar excluir categoria!");
 		}

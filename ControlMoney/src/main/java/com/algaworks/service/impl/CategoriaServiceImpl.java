@@ -74,9 +74,9 @@ public class CategoriaServiceImpl implements CategoriaService {
 
 		Categoria categoria = this.findById(id);
 
-		if(Objects.isNull(categoria)) {
-			throw new BadValueException("Essa categoria não existe");
-		}
+//		if(Objects.isNull(categoria)) {
+//			throw new BadValueException("Essa categoria não existe");
+//		}
 
 		this.dao.delete(categoria);
 	}
