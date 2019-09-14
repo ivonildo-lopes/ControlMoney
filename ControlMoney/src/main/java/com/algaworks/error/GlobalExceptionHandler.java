@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import javax.validation.ConstraintViolationException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -103,6 +104,17 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
         Object obj =  ResponseDto.response(errosParaDesenvolvedor,
                 HttpStatus.BAD_REQUEST,"Favor verifique todos os campos com validação",errosParaUsuario);
+        return handleExceptionInternal(ex, obj, null, HttpStatus.BAD_REQUEST, request);
+    }
+
+    @ExceptionHandler({BadValueException.class})
+    public ResponseEntity<Object> handleBadValueException(BadValueException ex,
+                                                                     WebRequest request) {
+
+        LOGGER.error(" =============== Bad request front ==========================");
+
+        Object obj =  ResponseDto.response(ex.toString(),
+                HttpStatus.BAD_REQUEST,ex.getMessage(), Arrays.asList(ex.getMessage()));
         return handleExceptionInternal(ex, obj, null, HttpStatus.BAD_REQUEST, request);
     }
 }

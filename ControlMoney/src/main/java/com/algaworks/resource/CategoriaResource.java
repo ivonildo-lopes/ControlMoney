@@ -83,12 +83,12 @@ public class CategoriaResource implements Serializable {
 			return ResponseDto.response(null,HttpStatus.NO_CONTENT,"Informe as categorias");
 		}
 
-		try {
+//		try {
 			this.service.saveAll(categorias);
 			return ResponseDto.response(null,HttpStatus.CREATED,"Categorias criadas com sucesso: ");
-		}catch (Exception e) {
-			return ResponseDto.response(null,HttpStatus.NO_CONTENT,"Erro ao tentar salvar categorias");
-		}
+//		}catch (Exception e) {
+//			return ResponseDto.response(null,HttpStatus.NO_CONTENT,"Erro ao tentar salvar categorias");
+//		}
 	}
 
 	@DeleteMapping(value = "/{id}")

@@ -31,7 +31,7 @@ public class CategoriaServiceImpl implements CategoriaService {
 	@Override
 	public Categoria findById(Long id) {
 		if(Objects.isNull(id)) {
-			throw new EmptyResultDataAccessException(1);
+			throw new BadValueException("Favor informe o id da categoria");
 		}
 		return this.dao.findOne(id);
 	}
@@ -43,7 +43,8 @@ public class CategoriaServiceImpl implements CategoriaService {
 		}
 
 		if(!this.findByName(obj.getNome()).isEmpty()){
-			return null;
+//			return null;
+			throw new BadValueException("Já existe uma categoria com esse nome: " + obj.getNome());
 		}
 		return this.dao.save(obj);
 	}
@@ -78,9 +79,9 @@ public class CategoriaServiceImpl implements CategoriaService {
 
 		Categoria categoria = this.findById(id);
 
-//		if(Objects.isNull(categoria)) {
-//			throw new BadValueException("Essa categoria não existe");
-//		}
+		if(Objects.isNull(categoria)) {
+			throw new BadValueException("Essa categoria não existe");
+		}
 
 		this.dao.delete(categoria);
 	}
@@ -106,7 +107,8 @@ public class CategoriaServiceImpl implements CategoriaService {
 		}
 
 		Converter.converteDtoToModel(categoriaDto,categoria,"id");
-		this.dao.saveAndFlush(categoria);
+//		this.dao.saveAndFlush(categoria);
+		this.save(categoria);
 
 		return (CategoriaDto) Converter.converteModelToDto(categoria,categoriaDto);
 	}
