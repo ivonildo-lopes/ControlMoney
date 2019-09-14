@@ -10,9 +10,11 @@ public interface PessoaService {
 
 	 Pessoa findById(Long id);
 
-	Pessoa save(Pessoa obj);
+	 Pessoa save(Pessoa obj);
 
 	 void saveAll(List<Pessoa> objs);
+
+	 void delete(Long id);
 
 	 List<Pessoa> findByName(String nome);
 

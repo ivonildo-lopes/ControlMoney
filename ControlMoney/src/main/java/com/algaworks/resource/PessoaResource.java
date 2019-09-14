@@ -83,4 +83,10 @@ public class PessoaResource implements Serializable {
 
 	}
 
+	@DeleteMapping(value = "/{id}")
+	public ResponseDto delete(@PathVariable Long id, HttpServletResponse response) {
+		this.service.delete(id);
+		return ResponseDto.response(null,HttpStatus.NO_CONTENT,"Pessoa deletada");
+	}
+
 }

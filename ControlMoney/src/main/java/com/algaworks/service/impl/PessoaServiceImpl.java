@@ -54,6 +54,16 @@ public class PessoaServiceImpl implements PessoaService {
 	}
 
 	@Override
+	public void delete(Long id) {
+		if(Objects.isNull(id)) {
+			throw new BadValueException("Por favor informe o id da pessoa");
+		}
+
+		Pessoa pessoa = this.dao.findOne(id);
+		this.dao.delete(pessoa);
+	}
+
+	@Override
 	public List<Pessoa> findByName(String nome) {
 
 		if(Objects.isNull(nome) || nome.isEmpty()) {
