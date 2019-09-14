@@ -16,4 +16,8 @@ public interface CategoriaService {
 
 	 List<Categoria> findByName(String nome);
 
+	 void delete(Long id);
+
+	 void deleteAll(List<Long> ids);
+
 }

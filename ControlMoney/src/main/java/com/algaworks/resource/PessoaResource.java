@@ -1,19 +1,17 @@
 package com.algaworks.resource;
 
 import com.algaworks.dto.ResponseDto;
-import com.algaworks.model.Categoria;
+import com.algaworks.event.ResourceCriadoEvent;
 import com.algaworks.model.Pessoa;
-import com.algaworks.service.CategoriaService;
 import com.algaworks.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.Serializable;
-import java.net.URI;
 import java.util.List;
 import java.util.Objects;
 
@@ -24,6 +22,9 @@ public class PessoaResource implements Serializable {
 
 	@Autowired
 	private PessoaService service;
+
+	@Autowired
+	private ApplicationEventPublisher publisher;
 	
 	@GetMapping(value = "/")
 	public ResponseDto findAll(HttpServletResponse response) {
@@ -62,10 +63,8 @@ public class PessoaResource implements Serializable {
 			return ResponseDto.response(pessoa,HttpStatus.NO_CONTENT,"Essa pessoa já existe");
 		}
 
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(pes.getId()).toUri();
-		response.setHeader("Location", uri.toString());
-		response.setStatus(HttpStatus.CREATED.value());
-		return ResponseDto.response(pes,HttpStatus.CREATED,"Pessoa criada com sucesso: " + pes.getNome(),uri);
+		this.publisher.publishEvent(new ResourceCriadoEvent(this,response,pes.getId()));
+		return ResponseDto.response(pes,HttpStatus.CREATED,"Pessoa criada com sucesso: " + pes.getNome());
 	}
 
 	@PostMapping(value = "/all")

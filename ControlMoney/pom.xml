@@ -63,7 +63,6 @@
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
-			<version>5.2.1</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.google.api-client/google-api-client -->
@@ -73,7 +72,7 @@
 			<version>1.25.0</version>
 		</dependency>
 
-		
+
 	</dependencies>
 
 	<build>
@@ -81,27 +80,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-
-			<plugin>
-				<groupId>org.flywaydb</groupId>
-				<artifactId>flyway-maven-plugin</artifactId>
-				<version>5.2.1</version>
-
-				<configuration>
-					<!--<driver>oracle.jdbc.OracleDriver</driver>-->
-					<url>jdbc:oracle:thin:@//192.168.102.65:1521/orcl2</url>
-					<user>s2gpr_licitagov</user>
-					<password>s2gpr_licitagov</password>
-					<table>tb_schema_migration</table>
-					<!--<schemas>-->
-					<!--<schema>s2gpr_licitagov</schema>-->
-					<!--</schemas>-->
-					<locations>
-						<location>filesystem:src/main/resources/db/migration/oracle</location>
-					</locations>
-				</configuration>
-
 			</plugin>
 		</plugins>
 	</build>

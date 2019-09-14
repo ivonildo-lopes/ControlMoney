@@ -66,5 +66,31 @@ public class CategoriaServiceImpl implements CategoriaService {
 		return this.dao.findByName(nome);
 	}
 
+	@Override
+	public void delete(Long id) {
+		if(Objects.isNull(id)) {
+			throw new BadValueException("Por favor informe o ID da categoria");
+		}
+
+		Categoria categoria = this.findById(id);
+
+		if(Objects.isNull(categoria)) {
+			throw new BadValueException("Essa categoria não existe");
+		}
+
+		this.dao.delete(categoria);
+	}
+
+	@Override
+	public void deleteAll(List<Long> ids) {
+		if(Objects.isNull(ids) || ids.isEmpty()) {
+			throw new BadValueException("Por favor informe os IDs das categorias");
+		}
+
+		ids.stream().forEach(id -> {
+			this.delete(id);
+		});
+	}
+
 
 }

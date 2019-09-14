@@ -6,9 +6,11 @@ import java.util.List;
 import java.util.Objects;
 
 import com.algaworks.dto.ResponseDto;
+import com.algaworks.event.ResourceCriadoEvent;
 import com.algaworks.model.Categoria;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +28,9 @@ public class CategoriaResource implements Serializable {
 	
 	@Autowired
 	private CategoriaService service;
+
+	@Autowired
+	private ApplicationEventPublisher publisher;
 	
 	@GetMapping(value = "/")
 	public ResponseDto findAll(HttpServletResponse response) {
@@ -64,10 +69,12 @@ public class CategoriaResource implements Serializable {
 			return ResponseDto.response(categoria,HttpStatus.NO_CONTENT,"Essa categoria já existe");
 		}
 
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(cat.getId()).toUri();
-		response.setHeader("Location", uri.toString());
-		response.setStatus(HttpStatus.CREATED.value());
-		return ResponseDto.response(cat,HttpStatus.CREATED,"Categoria criada com sucesso: " + categoria.getNome(),uri);
+//		URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(cat.getId()).toUri();
+//		response.setHeader("Location", uri.toString());
+//		response.setStatus(HttpStatus.CREATED.value());
+		this.publisher.publishEvent(new ResourceCriadoEvent(this,response,cat.getId()));
+
+		return ResponseDto.response(cat,HttpStatus.CREATED,"Categoria criada com sucesso: " + categoria.getNome());
 	}
 
 	@PostMapping(value = "/all")
@@ -83,8 +90,26 @@ public class CategoriaResource implements Serializable {
 		}catch (Exception e) {
 			return ResponseDto.response(null,HttpStatus.NO_CONTENT,"Erro ao tentar salvar categorias");
 		}
+	}
 
+	@DeleteMapping(value = "/{id}")
+	public ResponseDto delete(@PathVariable Long id, HttpServletResponse response) {
+		try {
+			this.service.delete(id);
+			return ResponseDto.response(null,HttpStatus.OK,"Categoria deletada: ");
+		}catch (Exception e) {
+			return ResponseDto.response(null,HttpStatus.NO_CONTENT,"Erro ao tentar excluir categoria!");
+		}
+	}
 
+	@DeleteMapping(value = "/")
+	public ResponseDto deleteAll(@RequestBody List<Long> ids, HttpServletResponse response) {
+		try {
+			this.service.deleteAll(ids);
+			return ResponseDto.response(null,HttpStatus.OK,"Categorias deletadas: ");
+		}catch (Exception e) {
+			return ResponseDto.response(null,HttpStatus.NO_CONTENT,"Erro ao tentar excluir categoria!");
+		}
 	}
 
 }
