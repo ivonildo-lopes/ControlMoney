@@ -18,8 +18,8 @@
       <file leaf-file-name="CategoriaResource.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/resource/CategoriaResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="92" column="4" lean-forward="true" selection-start-line="92" selection-start-column="4" selection-end-line="96" selection-end-column="5" />
+            <state relative-caret-position="117">
+              <caret line="110" column="37" lean-forward="false" selection-start-line="110" selection-start-column="37" selection-end-line="110" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -30,30 +30,8 @@
       <file leaf-file-name="CategoriaService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/CategoriaService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PessoaService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/PessoaService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PessoaServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/impl/PessoaServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state relative-caret-position="300">
+              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -62,18 +40,18 @@
       <file leaf-file-name="CategoriaServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/impl/CategoriaServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-181">
-              <caret line="29" column="79" lean-forward="true" selection-start-line="29" selection-start-column="79" selection-end-line="29" selection-end-column="79" />
+            <state relative-caret-position="434">
+              <caret line="104" column="56" lean-forward="true" selection-start-line="104" selection-start-column="56" selection-end-line="104" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PessoaResource.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/resource/PessoaResource.java">
+      <file leaf-file-name="GlobalExceptionHandler.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/error/GlobalExceptionHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-901">
-              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <state relative-caret-position="387">
+              <caret line="106" column="5" lean-forward="true" selection-start-line="106" selection-start-column="5" selection-end-line="106" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,11 +59,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ControlmoneyExceptionHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/error/ControlmoneyExceptionHandler.java">
+      <file leaf-file-name="BadValueException.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/error/BadValueException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="73" column="72" lean-forward="true" selection-start-line="73" selection-start-column="72" selection-end-line="73" selection-end-column="72" />
+            <state relative-caret-position="60">
+              <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Converter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/Util/Converter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Categoria.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/model/Categoria.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="26" selection-end-column="106" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CategoriaDto.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/dto/CategoriaDto.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -107,6 +115,7 @@
       <find>@Ent</find>
       <find>findAll</find>
       <find>Response</find>
+      <find>handleConstraintViolationException</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -132,13 +141,16 @@
         <option value="$PROJECT_DIR$/ControlMoney/pom.xml" />
         <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/event/ResourceCriadoEvent.java" />
         <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/listener/ResourceCriadoListener.java" />
-        <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/CategoriaService.java" />
-        <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/impl/CategoriaServiceImpl.java" />
-        <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/resource/CategoriaResource.java" />
-        <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/error/ControlmoneyExceptionHandler.java" />
         <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/resource/PessoaResource.java" />
         <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/PessoaService.java" />
         <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/impl/PessoaServiceImpl.java" />
+        <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/CategoriaService.java" />
+        <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/error/ControlmoneyExceptionHandler.java" />
+        <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/resource/CategoriaResource.java" />
+        <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/dto/CategoriaDto.java" />
+        <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/Util/Converter.java" />
+        <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/impl/CategoriaServiceImpl.java" />
+        <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/error/GlobalExceptionHandler.java" />
       </list>
     </option>
   </component>
@@ -252,22 +264,7 @@
               <item name="ControlMoney" type="616d4139:PackageViewModuleNode" />
               <item name="com" type="1f31426a:PackageElementNode" />
               <item name="algaworks" type="1f31426a:PackageElementNode" />
-              <item name="resource" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="curso-algaworks" type="58d84e3e:PackageViewProjectNode" />
-              <item name="ControlMoney" type="616d4139:PackageViewModuleNode" />
-              <item name="com" type="1f31426a:PackageElementNode" />
-              <item name="algaworks" type="1f31426a:PackageElementNode" />
-              <item name="service" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="curso-algaworks" type="58d84e3e:PackageViewProjectNode" />
-              <item name="ControlMoney" type="616d4139:PackageViewModuleNode" />
-              <item name="com" type="1f31426a:PackageElementNode" />
-              <item name="algaworks" type="1f31426a:PackageElementNode" />
-              <item name="service" type="1f31426a:PackageElementNode" />
-              <item name="impl" type="1f31426a:PackageElementNode" />
+              <item name="error" type="1f31426a:PackageElementNode" />
             </path>
           </expand>
           <select />
@@ -431,7 +428,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50642000" />
+    <option name="totallyTimeSpent" value="56993000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -468,7 +465,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39966834" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39966834" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -506,7 +503,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1719697" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17424242" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -514,20 +511,21 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39966834" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39966834" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36484244" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3416252" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25167537" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24015151" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
@@ -542,43 +540,26 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/error/ControlmoneyExceptionHandler.java</url>
-          <line>57</line>
-          <properties />
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/resource/PessoaResource.java</url>
           <line>87</line>
           <properties />
           <option name="timeStamp" value="20" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/error/GlobalExceptionHandler.java</url>
+          <line>45</line>
+          <properties />
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="21" />
+      <option name="time" value="24" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/model/Categoria.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="17" column="20" lean-forward="false" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/resource/CategoriaResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="73" column="17" lean-forward="false" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/impl/CategoriaServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
@@ -765,13 +746,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/model/Categoria.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/dao/PessoaDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -836,13 +810,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/error/BadValueException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/listener/ResourceCriadoListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -861,42 +828,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="48" column="9" lean-forward="false" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/error/ControlmoneyExceptionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="73" column="72" lean-forward="true" selection-start-line="73" selection-start-column="72" selection-end-line="73" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/impl/CategoriaServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-181">
-          <caret line="29" column="79" lean-forward="true" selection-start-line="29" selection-start-column="79" selection-end-line="29" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/resource/CategoriaResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="92" column="4" lean-forward="true" selection-start-line="92" selection-start-column="4" selection-end-line="96" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/CategoriaService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -923,6 +854,76 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-901">
           <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/dto/CategoriaDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/model/Categoria.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="26" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/Util/Converter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/error/BadValueException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/resource/CategoriaResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="110" column="37" lean-forward="false" selection-start-line="110" selection-start-column="37" selection-end-line="110" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/CategoriaService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/impl/CategoriaServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="104" column="56" lean-forward="true" selection-start-line="104" selection-start-column="56" selection-end-line="104" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/error/GlobalExceptionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="106" column="5" lean-forward="true" selection-start-line="106" selection-start-column="5" selection-end-line="106" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

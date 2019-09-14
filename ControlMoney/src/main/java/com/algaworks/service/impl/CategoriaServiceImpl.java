@@ -5,8 +5,12 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+import com.algaworks.Util.Converter;
+import com.algaworks.dto.CategoriaDto;
 import com.algaworks.error.BadValueException;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.algaworks.dao.CategoriaDao;
@@ -27,7 +31,7 @@ public class CategoriaServiceImpl implements CategoriaService {
 	@Override
 	public Categoria findById(Long id) {
 		if(Objects.isNull(id)) {
-			throw new BadValueException("Por favor informe o ID da categoria");
+			throw new EmptyResultDataAccessException(1);
 		}
 		return this.dao.findOne(id);
 	}
@@ -90,6 +94,21 @@ public class CategoriaServiceImpl implements CategoriaService {
 		ids.stream().forEach(id -> {
 			this.delete(id);
 		});
+	}
+
+	@Override
+	public CategoriaDto update(Long id, CategoriaDto categoriaDto) {
+
+		Categoria categoria = this.findById(id);
+
+		if(Objects.isNull(categoria)) {
+			throw new EmptyResultDataAccessException(1);
+		}
+
+		Converter.converteDtoToModel(categoriaDto,categoria,"id");
+		this.dao.saveAndFlush(categoria);
+
+		return (CategoriaDto) Converter.converteModelToDto(categoria,categoriaDto);
 	}
 
 

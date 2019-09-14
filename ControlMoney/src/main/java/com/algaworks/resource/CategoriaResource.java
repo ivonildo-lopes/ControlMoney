@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
+import com.algaworks.dto.CategoriaDto;
 import com.algaworks.dto.ResponseDto;
 import com.algaworks.event.ResourceCriadoEvent;
 import com.algaworks.model.Categoria;
@@ -104,6 +105,12 @@ public class CategoriaResource implements Serializable {
 		}catch (Exception e) {
 			return ResponseDto.response(null,HttpStatus.NO_CONTENT,"Erro ao tentar excluir categoria!");
 		}
+	}
+
+	@PutMapping(value = "/{id}")
+	public ResponseDto update(@Valid @PathVariable Long id, @RequestBody CategoriaDto categoriaDto, HttpServletResponse response) {
+		CategoriaDto categoria = this.service.update(id, categoriaDto);
+		return ResponseDto.response(categoria,HttpStatus.OK,"Categoria atualizada");
 	}
 
 

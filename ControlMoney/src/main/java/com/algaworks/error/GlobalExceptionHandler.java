@@ -15,16 +15,17 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import javax.validation.ConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
 @RestControllerAdvice
-public class ControlmoneyExceptionHandler extends ResponseEntityExceptionHandler {
+public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     private static final Logger LOGGER =
-            LoggerFactory.getLogger(ControlmoneyExceptionHandler.class);
+            LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @Override
     protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex,
@@ -40,42 +41,68 @@ public class ControlmoneyExceptionHandler extends ResponseEntityExceptionHandler
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
                                                                   HttpHeaders headers, HttpStatus status, WebRequest request) {
 
-        List<String> erros = new ArrayList<>();
-        LOGGER.error(" =============== Campos sem validação ==========================");
+        List<String> errosParaDesenvolvedor = new ArrayList<>();
+        LOGGER.error(" =============== Campos do Modelo que não passaram na validação ==========================");
         for (FieldError erro: ex.getBindingResult().getFieldErrors() ) {
-            erros.add(erro.toString());
+            errosParaDesenvolvedor.add(erro.toString());
         }
 
-        List<String> errs = ex.getBindingResult().getFieldErrors().stream()
+        List<String> errosParaUsuario = ex.getBindingResult().getFieldErrors().stream()
                 .map(e -> e.getDefaultMessage()).collect(Collectors.toList());
         LOGGER.error(" =============== ERROS ENCONTRADOS ==========================");
 
-        erros.stream().forEach(e -> {
+        errosParaDesenvolvedor.stream().forEach(e -> {
             LOGGER.error(e);
         });
 
         LOGGER.error(" =============== FIM DOS ERROS ENCONTRADOS ==========================");
-        Object obj =  ResponseDto.response(erros,
-                HttpStatus.BAD_REQUEST,"Favor verifique todos os campos com validação",errs);
+        Object obj =  ResponseDto.response(errosParaDesenvolvedor,
+                HttpStatus.BAD_REQUEST,"Favor verifique todos os campos com validação",errosParaUsuario);
         return handleExceptionInternal(ex, obj, headers, HttpStatus.BAD_REQUEST, request);
     }
 
 
-    @ExceptionHandler({EmptyResultDataAccessException.class, IllegalArgumentException.class})
-    public ResponseEntity<Object> handleEmptyResultDataAccessException(IllegalArgumentException ex, WebRequest request) {
+    @ExceptionHandler({IllegalArgumentException.class})
+    public ResponseEntity<Object> handleIllegalArgumentException(IllegalArgumentException ex, WebRequest request) {
 
         String msgError = "";
 
-        if(Objects.nonNull(ex.getMessage())){
-            msgError = ex.toString();
-        }
+        if(Objects.nonNull(ex.getMessage())) { msgError = ex.toString(); }
 
         LOGGER.error(" =============== Objeto não encontrado ==========================");
         Object obj =  ResponseDto.response(msgError,HttpStatus.NOT_FOUND,
                 "Este recurso não foi encontrado");
 
+        return handleExceptionInternal(ex, obj, null, HttpStatus.NOT_FOUND, request);
+    }
+
+    @ExceptionHandler({EmptyResultDataAccessException.class})
+    public ResponseEntity<Object> handleEmptyResultDataAccessException(EmptyResultDataAccessException ex, WebRequest request) {
+
+        String msgError = "";
+
+        if(Objects.nonNull(ex.getMessage())) { msgError = ex.toString(); }
+
+        LOGGER.error(" =============== Objeto não encontrado ==========================");
+        Object obj =  ResponseDto.response(msgError,HttpStatus.NOT_FOUND,
+                "Este recurso não foi encontrado");
 
         return handleExceptionInternal(ex, obj, null, HttpStatus.NOT_FOUND, request);
     }
 
+    @ExceptionHandler({ConstraintViolationException.class})
+    public ResponseEntity<Object> handleConstraintViolationException(ConstraintViolationException ex,
+                                                                    WebRequest request) {
+
+        LOGGER.error(" =============== Campos DTO que não passaram na validação ==========================");
+        List<String> errosParaDesenvolvedor = ex.getConstraintViolations().stream()
+                .map(e ->  e.toString()).collect(Collectors.toList());
+
+        List<String> errosParaUsuario = ex.getConstraintViolations().stream()
+                .map(e -> e.getMessage()).collect(Collectors.toList());
+
+        Object obj =  ResponseDto.response(errosParaDesenvolvedor,
+                HttpStatus.BAD_REQUEST,"Favor verifique todos os campos com validação",errosParaUsuario);
+        return handleExceptionInternal(ex, obj, null, HttpStatus.BAD_REQUEST, request);
+    }
 }
