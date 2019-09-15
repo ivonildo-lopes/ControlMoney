@@ -6,6 +6,7 @@ import com.algaworks.dto.LancamentoDto;
 import com.algaworks.error.BadValueException;
 import com.algaworks.error.NoContentException;
 import com.algaworks.model.Categoria;
+import com.algaworks.model.Endereco;
 import com.algaworks.model.Lancamento;
 import com.algaworks.model.Pessoa;
 import com.algaworks.service.CategoriaService;
@@ -105,8 +106,13 @@ public class LancamentoServiceImpl implements LancamentoService {
 		if(Objects.isNull(lancamento)) { throw new EmptyResultDataAccessException(1); }
 
 		lancamento = (Lancamento) Converter.converteDtoToModel(dto,lancamento,"id");
-		lancamento.setCategoria((Categoria) Converter.converteDtotoModel(dto.getCategoria(),lancamento.getCategoria()));
-		lancamento.setPessoa((Pessoa) Converter.converteDtotoModel(dto.getPessoa(),lancamento.getPessoa()));
+
+		lancamento.setCategoria(Categoria.getPessoaDtoToPessoa(dto.getCategoria()));
+//		lancamento.setCategoria((Categoria) Converter.converteDtotoModel(dto.getCategoria(),lancamento.getCategoria()));
+
+		lancamento.setPessoa(Pessoa.getPessoaDtoToPessoa(dto.getPessoa()));
+//		lancamento.setPessoa((Pessoa) Converter.converteDtotoModel(dto.getPessoa(),lancamento.getPessoa()));
+
 		this.save(lancamento);
 
 		return (LancamentoDto) Converter.converteModelToDto(lancamento,dto);

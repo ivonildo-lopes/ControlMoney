@@ -1,5 +1,8 @@
 package com.algaworks.model;
 
+import com.algaworks.Util.Converter;
+import com.algaworks.dto.EnderecoDto;
+import com.algaworks.dto.PessoaDto;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -25,4 +28,9 @@ public @Data class Pessoa implements Serializable {
 
     @Embedded
     private Endereco endereco;
+
+    public static Pessoa getPessoaDtoToPessoa(PessoaDto dto){
+        Pessoa pessoa = new Pessoa();
+        return (Pessoa) Converter.converteDtotoModel(dto,pessoa);
+    }
 }

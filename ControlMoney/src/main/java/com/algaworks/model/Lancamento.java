@@ -54,7 +54,4 @@ public @Data class Lancamento implements Serializable {
     @Column(name = "tipo")
     private TipoLancamento tipoLancamento;
 
-    public Categoria getCategoriaDtoToCategoria(LancamentoDto dto, Lancamento lancamento) {
-        return (Categoria) Converter.converteDtotoModel(dto.getCategoria(),lancamento.getCategoria());
-    }
 }

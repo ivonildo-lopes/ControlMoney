@@ -1,5 +1,7 @@
 package com.algaworks.model;
 
+import com.algaworks.Util.Converter;
+import com.algaworks.dto.CategoriaDto;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,5 +28,10 @@ public @Data class Categoria implements Serializable {
 	@NotEmpty(message = "O nome da categoria deve ser informado")
 	@Size(min = 3, max = 100, message = "O nome da Categoria  deve conter entre {min} e {max} caracteres")
 	private String nome;
+
+	public static Categoria getPessoaDtoToPessoa(CategoriaDto dto){
+		Categoria categoria = new Categoria();
+		return (Categoria) Converter.converteDtotoModel(dto,categoria);
+	}
 
 }
