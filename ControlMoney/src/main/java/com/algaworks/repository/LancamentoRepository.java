@@ -30,7 +30,7 @@ public class LancamentoRepository implements Serializable {
         Map<String, Object> filter2 = new HashMap();
         filter2 = filter.filters();
 
-        int paginaAtual = pageable.getPageNumber() == 0 ? 0 :pageable.getPageNumber() - 1;
+        int paginaAtual = pageable.getPageNumber();
         int totalRegistroPorPagina = pageable.getPageSize();
         int primeiroRegistro = paginaAtual * totalRegistroPorPagina;
 
