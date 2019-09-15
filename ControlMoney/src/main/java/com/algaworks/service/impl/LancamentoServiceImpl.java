@@ -16,7 +16,9 @@ import com.algaworks.service.LancamentoService;
 import com.algaworks.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 import java.util.Objects;
@@ -47,7 +49,7 @@ public class LancamentoServiceImpl implements LancamentoService {
 	}
 
 	@Override
-	public List<LancamentoDto> findAllFilter(LancamentoFilter filter) {
+	public List<LancamentoDto> findAllFilter(LancamentoFilter filter, Pageable pageable) {
 
 		List<LancamentoDto> lancamentos = this.repository.findAllFilter(filter);
 

@@ -3,6 +3,9 @@ package com.algaworks.error;
 import com.algaworks.dto.ResponseDto;
 import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.ibatis.builder.BuilderException;
+import org.apache.ibatis.ognl.ExpressionSyntaxException;
+import org.mybatis.spring.MyBatisSystemException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -126,7 +129,21 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
         Object obj =  ResponseDto.response(ExceptionUtils.getRootCauseMessage(ex),
                 HttpStatus.NO_CONTENT,ex.getMessage(), Arrays.asList(ex.getMessage()));
-        return handleExceptionInternal(ex, obj, null, HttpStatus.NO_CONTENT, request);
+        return handleExceptionInternal(ex, obj, null, HttpStatus.OK, request);
+    }
+
+
+    @ExceptionHandler({MyBatisSystemException.class})
+    public ResponseEntity<Object> handleDataIntegrityViolationException(MyBatisSystemException ex,
+                                                                        WebRequest request) {
+
+        LOGGER.error(" =============== MYBATIS ERROR==========================");
+        BuilderException eee = ((BuilderException) ex.getCause());
+        String msg = ((ExpressionSyntaxException) eee.getCause()).getLocalizedMessage();
+
+        ResponseDto res =  ResponseDto.response(ExceptionUtils.getRootCauseMessage(ex),
+                HttpStatus.NO_CONTENT,"Erro no Mybatis", Arrays.asList(msg));
+        return handleExceptionInternal(ex, res, null, HttpStatus.EXPECTATION_FAILED, request);
     }
 
     /**
