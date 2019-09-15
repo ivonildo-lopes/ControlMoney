@@ -70,14 +70,23 @@ public class LancamentoServiceImpl implements LancamentoService {
 
 		return (LancamentoDto) Converter.converteModelToDto(lancamento,obj);
 	}
-//
-//	@Override
-//	public void delete(Long id) {
-//		if(Objects.isNull(id)) { throw new BadValueException("Por favor informe o id da lancamento"); }
-//
-//		Lancamento lancamento = this.dao.findOne(id);
-//		this.dao.delete(lancamento);
-//	}
+
+	@Override
+	public void delete(Long id) {
+		if(Objects.isNull(id)) { throw new BadValueException("Por favor informe o id do lancamento"); }
+
+		Lancamento lancamento = this.dao.findOne(id);
+
+		if(Objects.isNull(lancamento)) {
+			throw new BadValueException("Esse lançamento não existe");
+		}
+
+
+		if(Objects.nonNull(lancamento.getDataPagamento())){
+			throw new BadValueException("O Lançamento não pode ser deletado pois ja está pago");
+		}
+		this.dao.delete(lancamento);
+	}
 //
 //	@Override
 //	public List<Lancamento> findByName(String nome) {

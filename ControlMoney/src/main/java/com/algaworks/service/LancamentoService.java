@@ -13,8 +13,8 @@ public interface LancamentoService {
 
 	 Lancamento save(Lancamento obj);
 	 LancamentoDto save(LancamentoDto obj);
-//
-//	 void delete(Long id);
+
+	 void delete(Long id);
 //
 //	 List<Lancamento> findByName(String nome);
 //

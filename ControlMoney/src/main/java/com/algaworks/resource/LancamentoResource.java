@@ -54,12 +54,12 @@ public class LancamentoResource implements Serializable {
 		this.publisher.publishEvent(new ResourceCriadoEvent(this,response,lan.getId()));
 		return ResponseDto.response(lan,HttpStatus.CREATED,"Lancamento criada com sucesso: " + lan.getDescricao());
 	}
-//
-//	@DeleteMapping(value = "/{id}")
-//	public ResponseDto delete(@PathVariable Long id, HttpServletResponse response) {
-//		this.service.delete(id);
-//		return ResponseDto.response(null,HttpStatus.NO_CONTENT,"Lancamento deletada");
-//	}
+
+	@DeleteMapping(value = "/{id}")
+	public ResponseDto delete(@PathVariable Long id, HttpServletResponse response) {
+		this.service.delete(id);
+		return ResponseDto.response(null,HttpStatus.NO_CONTENT,"Lancamento deletado");
+	}
 //
 //	@PutMapping(value = "/{id}")
 //	public ResponseDto update(@Valid @PathVariable Long id, @RequestBody LancamentoDto lancamento, HttpServletResponse response) {
