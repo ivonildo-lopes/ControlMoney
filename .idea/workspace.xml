@@ -15,21 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PessoaResource.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/resource/PessoaResource.java">
+      <file leaf-file-name="Lancamento.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/model/Lancamento.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-481">
-              <caret line="2" column="35" lean-forward="true" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PessoaService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/PessoaService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="272">
+              <caret line="37" column="4" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -37,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PessoaDto.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/dto/PessoaDto.java">
+      <file leaf-file-name="LancamentoDto.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/dto/LancamentoDto.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="58" />
+            <state relative-caret-position="212">
+              <caret line="22" column="55" lean-forward="true" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -49,56 +39,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GlobalExceptionHandler.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/error/GlobalExceptionHandler.java">
+      <file leaf-file-name="TipoLancamento.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/enums/TipoLancamento.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="35" column="109" lean-forward="false" selection-start-line="35" selection-start-column="109" selection-end-line="35" selection-end-column="109" />
+            <state relative-caret-position="150">
+              <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#144#145#0" expanded="true" />
+                <element signature="e#180#181#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Endereco.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/model/Endereco.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="8" column="51" lean-forward="false" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pessoa.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/model/Pessoa.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PessoaServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/impl/PessoaServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="885">
-              <caret line="59" column="121" lean-forward="false" selection-start-line="59" selection-start-column="121" selection-end-line="59" selection-end-column="121" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EnderecoDto.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/dto/EnderecoDto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -109,6 +58,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -156,6 +106,9 @@
         <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/model/Pessoa.java" />
         <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/impl/PessoaServiceImpl.java" />
         <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/error/GlobalExceptionHandler.java" />
+        <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/enums/TipoLancamento.java" />
+        <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/model/Lancamento.java" />
+        <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/dto/LancamentoDto.java" />
       </list>
     </option>
   </component>
@@ -231,36 +184,7 @@
               <item name="ControlMoney" type="616d4139:PackageViewModuleNode" />
               <item name="com" type="1f31426a:PackageElementNode" />
               <item name="algaworks" type="1f31426a:PackageElementNode" />
-              <item name="error" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="curso-algaworks" type="58d84e3e:PackageViewProjectNode" />
-              <item name="ControlMoney" type="616d4139:PackageViewModuleNode" />
-              <item name="com" type="1f31426a:PackageElementNode" />
-              <item name="algaworks" type="1f31426a:PackageElementNode" />
               <item name="model" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="curso-algaworks" type="58d84e3e:PackageViewProjectNode" />
-              <item name="ControlMoney" type="616d4139:PackageViewModuleNode" />
-              <item name="com" type="1f31426a:PackageElementNode" />
-              <item name="algaworks" type="1f31426a:PackageElementNode" />
-              <item name="resource" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="curso-algaworks" type="58d84e3e:PackageViewProjectNode" />
-              <item name="ControlMoney" type="616d4139:PackageViewModuleNode" />
-              <item name="com" type="1f31426a:PackageElementNode" />
-              <item name="algaworks" type="1f31426a:PackageElementNode" />
-              <item name="service" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="curso-algaworks" type="58d84e3e:PackageViewProjectNode" />
-              <item name="ControlMoney" type="616d4139:PackageViewModuleNode" />
-              <item name="com" type="1f31426a:PackageElementNode" />
-              <item name="algaworks" type="1f31426a:PackageElementNode" />
-              <item name="service" type="1f31426a:PackageElementNode" />
-              <item name="impl" type="1f31426a:PackageElementNode" />
             </path>
           </expand>
           <select />
@@ -459,12 +383,12 @@
       <workItem from="1568327885567" duration="14669000" />
       <workItem from="1568418502778" duration="2666000" />
       <workItem from="1568425323005" duration="1975000" />
-      <workItem from="1568483052244" duration="7948000" />
+      <workItem from="1568483052244" duration="9050000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67774000" />
+    <option name="totallyTimeSpent" value="68876000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -490,7 +414,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36484244" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3416252" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3416252" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2439394" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -501,7 +425,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39966834" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39966834" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -571,30 +495,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/resource/CategoriaResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="47" column="62" lean-forward="true" selection-start-line="47" selection-start-column="62" selection-end-line="47" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/impl/CategoriaServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="28" column="36" lean-forward="false" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/dto/ResponseDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
-          <caret line="122" column="21" lean-forward="true" selection-start-line="122" selection-start-column="21" selection-end-line="122" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ControlMoney/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="945">
@@ -823,7 +723,7 @@
         <state relative-caret-position="255">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -942,10 +842,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/error/GlobalExceptionHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
+        <state relative-caret-position="-174">
           <caret line="35" column="109" lean-forward="false" selection-start-line="35" selection-start-column="109" selection-end-line="35" selection-end-column="109" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/model/Lancamento.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="37" column="4" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/dto/LancamentoDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="22" column="55" lean-forward="true" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/enums/TipoLancamento.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding>
+            <element signature="e#144#145#0" expanded="true" />
+            <element signature="e#180#181#0" expanded="true" />
           </folding>
         </state>
       </provider>
