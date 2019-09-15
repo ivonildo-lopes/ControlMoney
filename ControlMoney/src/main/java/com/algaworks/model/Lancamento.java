@@ -1,6 +1,7 @@
 package com.algaworks.model;
 
 import com.algaworks.enums.TipoLancamento;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -23,9 +24,11 @@ public @Data class Lancamento implements Serializable {
 
     @Column(name = "data_vencimento")
     @NotNull(message = "Favor informe a data de vencimento")
+    @JsonFormat(pattern =  "dd/MM/yyyy")
     private LocalDate dataVencimento;
 
     @Column(name = "data_pagamento")
+    @JsonFormat(pattern =  "dd/MM/yyyy")
     private LocalDate dataPagamento;
 
     @NotNull(message = "Informe o valor do Lançamento")
@@ -35,10 +38,12 @@ public @Data class Lancamento implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "id_categoria", referencedColumnName = "id")
+    @NotNull(message = "Favor informar a categoria do lançamento")
     private Categoria categoria;
 
     @ManyToOne
     @JoinColumn(name = "id_pessoa", referencedColumnName = "id")
+    @NotNull(message = "Favor informar a pessoa")
     private Pessoa pessoa;
 
     @Enumerated(value = EnumType.STRING)
