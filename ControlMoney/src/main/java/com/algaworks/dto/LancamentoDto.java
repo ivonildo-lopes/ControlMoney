@@ -1,6 +1,7 @@
 package com.algaworks.dto;
 
 import com.algaworks.enums.TipoLancamento;
+import com.algaworks.model.Pessoa;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -16,6 +17,7 @@ public @Data class LancamentoDto implements Serializable {
     @NotEmpty(message = "Favor informar uma descrição para o Lançamento")
     private String descricao;
 
+    @NotNull(message = "Favor informe a data de vencimento")
     private LocalDate dataVencimento;
 
     private LocalDate dataPagamento;
@@ -27,5 +29,8 @@ public @Data class LancamentoDto implements Serializable {
 
     private CategoriaDto categoria;
 
+    @NotNull(message = "Favor informar o tipo do Lançamento")
     private TipoLancamento tipoLancamento;
+
+    private PessoaDto pessoa;
 }

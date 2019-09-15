@@ -2,11 +2,11 @@ package com.algaworks.enums;
 
 public enum TipoLancamento {
 
-    RECEITA(1), DESPESA(2);
+    RECEITA("Receita"), DESPESA("Despesa");
 
-    Integer codigo;
+    String descricao;
 
-    TipoLancamento(Integer codigo){
-        this.codigo = codigo;
+    TipoLancamento(String descricao){
+        this.descricao = descricao;
     }
 }
