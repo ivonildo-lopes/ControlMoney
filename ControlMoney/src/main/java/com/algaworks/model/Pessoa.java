@@ -3,6 +3,7 @@ package com.algaworks.model;
 import com.algaworks.Util.Converter;
 import com.algaworks.dto.EnderecoDto;
 import com.algaworks.dto.PessoaDto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -32,6 +33,12 @@ public @Data class Pessoa implements Serializable {
     public static Pessoa getPessoaDtoToPessoa(PessoaDto dto){
         Pessoa pessoa = new Pessoa();
         return (Pessoa) Converter.converteDtotoModel(dto,pessoa);
+    }
+
+    @JsonIgnore
+    @Transient
+    public Boolean isInativo(){
+        return !ativo;
     }
 
 }

@@ -152,7 +152,18 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
         Object obj =  ResponseDto.response(ex.toString(),
                 HttpStatus.NO_CONTENT,ex.getMessage(), Arrays.asList(ex.getMessage()));
-        return handleExceptionInternal(ex, obj, null, HttpStatus.NO_CONTENT, request);
+        return handleExceptionInternal(ex, obj, null, HttpStatus.OK, request);
+    }
+
+    @ExceptionHandler({NegocioException.class})
+    public ResponseEntity<Object> handleNegocioException(NegocioException ex,
+                                                           WebRequest request) {
+
+        LOGGER.error(" =============== NegocioException ==========================");
+
+        Object obj =  ResponseDto.response(ex.toString(),
+                HttpStatus.NO_CONTENT,ex.getMessage(), Arrays.asList(ex.getMessage()));
+        return handleExceptionInternal(ex, obj, null, HttpStatus.OK, request);
     }
 
 

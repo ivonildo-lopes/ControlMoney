@@ -1,0 +1,69 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="LancamentoRepository">
+
+    <resultMap id="resultListLancamento" type="com.algaworks.dto.LancamentoDto">
+        <result property="id" column="id" />
+        <result property="descricao" column="descricao" />
+        <result property="dataVencimento" column="dataVencimento" />
+        <result property="dataPagamento" column="dataPagamento" />
+
+        <result property="valor" column="valor" />
+        <result property="observacao" column="observacao" />
+        <!--<result property="tipo" column="tipo" />-->
+
+        <collection property="categoria" ofType="com.algaworks.dto.CategoriaDto">
+            <id property="id" column="idCategoria"/>
+            <result property="nome" column="nomeCategoria"/>
+        </collection>
+
+        <collection property="pessoa" ofType="com.algaworks.dto.PessoaDto">
+            <id property="id" column="idPessoa"/>
+            <result property="nome" column="nomePessoa"/>
+            <result property="ativo" column="ativo"/>
+            <collection property="endereco" ofType="com.algaworks.dto.EnderecoDto">
+                <result property="logradouro" column="logradouro"/>
+                <result property="numero" column="numero"/>
+                <result property="complemento" column="complemento"/>
+                <result property="bairro" column="bairro"/>
+                <result property="cep" column="cep"/>
+                <result property="cidade" column="cidade"/>
+                <result property="estado" column="estado"/>
+            </collection>
+
+        </collection>
+
+    </resultMap>
+
+    <select id="findAllFilter" resultMap="resultListLancamento">
+
+        select l.id, l.descricao, l.data_vencimento dataVencimento, l.data_pagamento dataPagamento,
+            l.valor, l.observacao,
+            c.id idCategoria, c.nome nomeCategoria,
+            p.id idPessoa, p.nome nomePessoa, p.ativo,
+            p.logradouro, p.numero, p.complemento, p.bairro,p.cep,p.cidade,p.estado
+        from lancamentos l
+        JOIN categorias c on l.id_categoria = c.id
+        JOIN pessoas p on l.id_pessoa = p.id
+        where 1=1
+
+        <if test="descricao != null">
+            AND l.descricao like #{descricao}
+        </if>
+
+        <if test="dataVencimentoDe != null and dataVencimentoAte == null">
+            and l.data_vencimento BETWEEN #{dataVencimentoDe} AND #{dataVencimentoDe};
+        </if>
+
+        <if test="dataVencimentoDe != null and dataVencimentoAte != null">
+            and l.data_vencimento BETWEEN #{dataVencimentoDe} AND #{dataVencimentoAte};
+        </if>
+
+    </select>
+
+
+
+
+</mapper>

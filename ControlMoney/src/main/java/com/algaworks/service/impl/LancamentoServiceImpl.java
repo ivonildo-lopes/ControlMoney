@@ -4,11 +4,13 @@ import com.algaworks.Util.Converter;
 import com.algaworks.dao.LancamentoDao;
 import com.algaworks.dto.LancamentoDto;
 import com.algaworks.error.BadValueException;
+import com.algaworks.error.NegocioException;
 import com.algaworks.error.NoContentException;
 import com.algaworks.model.Categoria;
-import com.algaworks.model.Endereco;
 import com.algaworks.model.Lancamento;
 import com.algaworks.model.Pessoa;
+import com.algaworks.repository.Filter.LancamentoFilter;
+import com.algaworks.repository.LancamentoRepository;
 import com.algaworks.service.CategoriaService;
 import com.algaworks.service.LancamentoService;
 import com.algaworks.service.PessoaService;
@@ -26,6 +28,9 @@ public class LancamentoServiceImpl implements LancamentoService {
 	private LancamentoDao dao;
 
 	@Autowired
+	private LancamentoRepository repository;
+
+	@Autowired
 	private CategoriaService categoriaService;
 
 	@Autowired
@@ -37,6 +42,17 @@ public class LancamentoServiceImpl implements LancamentoService {
 		List<Lancamento> lancamentos = this.dao.findAll();
 
 		if(Objects.isNull(lancamentos) || lancamentos.isEmpty()) { throw new NoContentException("Nenhuma Lancamento Encontrada!"); }
+
+		return lancamentos;
+	}
+
+	@Override
+	public List<LancamentoDto> findAllFilter(LancamentoFilter filter) {
+
+		List<LancamentoDto> lancamentos = this.repository.findAllFilter(filter);
+
+		if(Objects.isNull(lancamentos) || lancamentos.isEmpty()) { throw new NoContentException("Nenhuma Lancamento Encontrada!"); }
+
 
 		return lancamentos;
 	}
@@ -69,6 +85,10 @@ public class LancamentoServiceImpl implements LancamentoService {
 		lancamento = (Lancamento) Converter.converteDtoToModel(obj,lancamento,"id");
 		lancamento.setCategoria(this.categoriaService.findById(obj.getCategoria().getId()));
 		lancamento.setPessoa(pessoaService.findById(obj.getPessoa().getId()));
+
+		if(lancamento.getPessoa().isInativo()) {
+			throw new NegocioException("Não é possivel criar lançamento para pessoa Inativa ");
+		}
 
 		lancamento = this.dao.save(lancamento);
 

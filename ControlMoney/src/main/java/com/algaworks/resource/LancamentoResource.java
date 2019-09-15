@@ -4,6 +4,7 @@ import com.algaworks.dto.LancamentoDto;
 import com.algaworks.dto.ResponseDto;
 import com.algaworks.event.ResourceCriadoEvent;
 import com.algaworks.model.Lancamento;
+import com.algaworks.repository.Filter.LancamentoFilter;
 import com.algaworks.service.LancamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
@@ -27,8 +28,14 @@ public class LancamentoResource implements Serializable {
 	private ApplicationEventPublisher publisher;
 	
 	@GetMapping(value = "/")
-	public ResponseDto findAll(HttpServletResponse response) {
+	public ResponseDto findAll() {
 		List<Lancamento> lancamentos = this.service.findAll();
+		return ResponseDto.response(lancamentos,HttpStatus.OK,"Lista de Todas os lancamentos");
+	}
+
+	@GetMapping(value = "/params")
+	public ResponseDto findAllFilter(LancamentoFilter filter) {
+		List<LancamentoDto> lancamentos = this.service.findAllFilter(filter);
 		return ResponseDto.response(lancamentos,HttpStatus.OK,"Lista de Todas os lancamentos");
 	}
 
@@ -66,11 +73,5 @@ public class LancamentoResource implements Serializable {
 		LancamentoDto lancamentoDto = this.service.update(id, lancamento);
 		return ResponseDto.response(lancamentoDto,HttpStatus.OK,"Lancamento atualizada");
 	}
-//
-//	@PutMapping(value = "/{id}/ativo")
-//	public ResponseDto updateParcial(@Valid @PathVariable Long id, @RequestBody Boolean ativo, HttpServletResponse response) {
-//		LancamentoDto lancamentoDto = this.service.update(id, ativo);
-//		return ResponseDto.response(lancamentoDto,HttpStatus.OK,"Lancamento atualizada");
-//	}
 
 }

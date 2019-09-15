@@ -2,12 +2,14 @@ package com.algaworks.service;
 
 import com.algaworks.dto.LancamentoDto;
 import com.algaworks.model.Lancamento;
+import com.algaworks.repository.Filter.LancamentoFilter;
 
 import java.util.List;
 
 public interface LancamentoService {
 	
 	 List<Lancamento> findAll();
+	 List<LancamentoDto> findAllFilter(LancamentoFilter filter);
 
 	 Lancamento findById(Long id);
 
