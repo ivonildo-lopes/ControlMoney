@@ -16,6 +16,7 @@ import com.algaworks.service.LancamentoService;
 import com.algaworks.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -49,11 +50,11 @@ public class LancamentoServiceImpl implements LancamentoService {
 	}
 
 	@Override
-	public List<LancamentoDto> findAllFilter(LancamentoFilter filter, Pageable pageable) {
+	public Page<LancamentoDto> findAllFilter(LancamentoFilter filter, Pageable pageable) {
 
-		List<LancamentoDto> lancamentos = this.repository.findAllFilter(filter);
+		Page<LancamentoDto> lancamentos = this.repository.findAllFilter(filter,pageable);
 
-		if(Objects.isNull(lancamentos) || lancamentos.isEmpty()) { throw new NoContentException("Nenhuma Lancamento Encontrada!"); }
+		if(Objects.isNull(lancamentos)) { throw new NoContentException("Nenhuma Lancamento Encontrada!"); }
 
 
 		return lancamentos;

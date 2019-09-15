@@ -8,6 +8,7 @@ import com.algaworks.repository.Filter.LancamentoFilter;
 import com.algaworks.service.LancamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +37,7 @@ public class LancamentoResource implements Serializable {
 
 	@GetMapping(value = "/params")
 	public ResponseDto findAllFilter(LancamentoFilter filter, Pageable pageable) {
-		List<LancamentoDto> lancamentos = this.service.findAllFilter(filter, pageable);
+		Page<LancamentoDto> lancamentos = this.service.findAllFilter(filter, pageable);
 		return ResponseDto.response(lancamentos,HttpStatus.OK,"Lista de Todas os lancamentos");
 	}
 

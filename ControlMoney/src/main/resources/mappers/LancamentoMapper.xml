@@ -61,6 +61,9 @@
             and l.data_vencimento BETWEEN #{dataVencimentoDe} AND #{dataVencimentoAte};
         </if>
 
+        order by l.id
+        limit #{primeiroRegistro}, #{totalRegistroPorPagina}
+
     </select>
 
 

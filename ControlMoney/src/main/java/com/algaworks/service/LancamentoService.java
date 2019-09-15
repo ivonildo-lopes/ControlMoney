@@ -3,6 +3,7 @@ package com.algaworks.service;
 import com.algaworks.dto.LancamentoDto;
 import com.algaworks.model.Lancamento;
 import com.algaworks.repository.Filter.LancamentoFilter;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 public interface LancamentoService {
 	
 	 List<Lancamento> findAll();
-	 List<LancamentoDto> findAllFilter(LancamentoFilter filter, Pageable pageable);
+	 Page<LancamentoDto> findAllFilter(LancamentoFilter filter, Pageable pageable);
 
 	 Lancamento findById(Long id);
 
