@@ -39,21 +39,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ControlMoney/.gitignore">
+      <file leaf-file-name="Pessoa.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/model/Pessoa.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="1" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+            <state relative-caret-position="242">
+              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Pessoa.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/model/Pessoa.java">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ControlMoney/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="31" column="4" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="34" selection-end-column="5" />
+            <state relative-caret-position="270">
+              <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -188,10 +188,10 @@
         <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/impl/CategoriaServiceImpl.java" />
         <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/Util/Converter.java" />
         <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/impl/PessoaServiceImpl.java" />
-        <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/model/Pessoa.java" />
         <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/model/Categoria.java" />
         <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/model/Lancamento.java" />
         <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/service/impl/LancamentoServiceImpl.java" />
+        <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/model/Pessoa.java" />
         <option value="$PROJECT_DIR$/ControlMoney/.gitignore" />
       </list>
     </option>
@@ -464,12 +464,12 @@
       <workItem from="1568418502778" duration="2666000" />
       <workItem from="1568425323005" duration="1975000" />
       <workItem from="1568483052244" duration="13574000" />
-      <workItem from="1568521163066" duration="10417000" />
+      <workItem from="1568521163066" duration="10628000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83817000" />
+    <option name="totallyTimeSpent" value="84028000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -965,14 +965,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/model/Pessoa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="31" column="4" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="34" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/model/Lancamento.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1019,10 +1011,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/model/Pessoa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ControlMoney/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="1" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        <state relative-caret-position="270">
+          <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
           <folding />
         </state>
       </provider>
