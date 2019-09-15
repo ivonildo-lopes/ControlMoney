@@ -13,4 +13,9 @@ public class Converter {
         BeanUtils.copyProperties(dto,model,propertIgnore);
         return model;
     }
+
+    public static Object converteDtotoModel(Object dto, Object model){
+        BeanUtils.copyProperties(dto,model);
+        return model;
+    }
 }

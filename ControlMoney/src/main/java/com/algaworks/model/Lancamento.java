@@ -1,5 +1,8 @@
 package com.algaworks.model;
 
+import com.algaworks.Util.Converter;
+import com.algaworks.dto.CategoriaDto;
+import com.algaworks.dto.LancamentoDto;
 import com.algaworks.enums.TipoLancamento;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -50,4 +53,8 @@ public @Data class Lancamento implements Serializable {
     @NotNull(message = "Favor informar o tipo do Lançamento")
     @Column(name = "tipo")
     private TipoLancamento tipoLancamento;
+
+    public Categoria getCategoriaDtoToCategoria(LancamentoDto dto, Lancamento lancamento) {
+        return (Categoria) Converter.converteDtotoModel(dto.getCategoria(),lancamento.getCategoria());
+    }
 }

@@ -18,7 +18,7 @@ public interface LancamentoService {
 //
 //	 List<Lancamento> findByName(String nome);
 //
-//	 LancamentoDto update(Long id, LancamentoDto dto);
+	 LancamentoDto update(Long id, LancamentoDto dto);
 //
 //	 LancamentoDto update(Long id, Boolean ativo);
 }

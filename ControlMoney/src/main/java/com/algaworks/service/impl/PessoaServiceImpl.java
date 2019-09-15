@@ -36,7 +36,13 @@ public class PessoaServiceImpl implements PessoaService {
 		if(Objects.isNull(id)) {
 			throw new BadValueException("Por favor informe o ID da pessoa");
 		}
-		return this.dao.findOne(id);
+
+		Pessoa pessoa = this.dao.findOne(id);
+
+		if(Objects.isNull(pessoa)) {
+			throw new BadValueException("Essa pessoa não existe");
+		}
+		return pessoa;
 	}
 
 	@Override

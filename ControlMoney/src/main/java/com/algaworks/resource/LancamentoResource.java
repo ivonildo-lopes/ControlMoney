@@ -60,12 +60,12 @@ public class LancamentoResource implements Serializable {
 		this.service.delete(id);
 		return ResponseDto.response(null,HttpStatus.NO_CONTENT,"Lancamento deletado");
 	}
-//
-//	@PutMapping(value = "/{id}")
-//	public ResponseDto update(@Valid @PathVariable Long id, @RequestBody LancamentoDto lancamento, HttpServletResponse response) {
-//		LancamentoDto lancamentoDto = this.service.update(id, lancamento);
-//		return ResponseDto.response(lancamentoDto,HttpStatus.OK,"Lancamento atualizada");
-//	}
+
+	@PutMapping(value = "/{id}")
+	public ResponseDto update(@Valid @PathVariable Long id, @RequestBody LancamentoDto lancamento, HttpServletResponse response) {
+		LancamentoDto lancamentoDto = this.service.update(id, lancamento);
+		return ResponseDto.response(lancamentoDto,HttpStatus.OK,"Lancamento atualizada");
+	}
 //
 //	@PutMapping(value = "/{id}/ativo")
 //	public ResponseDto updateParcial(@Valid @PathVariable Long id, @RequestBody Boolean ativo, HttpServletResponse response) {

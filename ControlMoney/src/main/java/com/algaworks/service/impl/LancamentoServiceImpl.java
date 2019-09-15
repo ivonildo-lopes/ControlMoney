@@ -5,11 +5,14 @@ import com.algaworks.dao.LancamentoDao;
 import com.algaworks.dto.LancamentoDto;
 import com.algaworks.error.BadValueException;
 import com.algaworks.error.NoContentException;
+import com.algaworks.model.Categoria;
 import com.algaworks.model.Lancamento;
+import com.algaworks.model.Pessoa;
 import com.algaworks.service.CategoriaService;
 import com.algaworks.service.LancamentoService;
 import com.algaworks.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -95,17 +98,19 @@ public class LancamentoServiceImpl implements LancamentoService {
 //		return this.dao.findByName(nome);
 //	}
 //
-//	@Override
-//	public LancamentoDto update(Long id, LancamentoDto dto) {
-//		Lancamento lancamento = this.findById(id);
-//
-//		if(Objects.isNull(lancamento)) { throw new EmptyResultDataAccessException(1); }
-//
-//		Converter.converteDtoToModel(dto,lancamento,"id");
-//		this.save(lancamento);
-//
-//		return (LancamentoDto) Converter.converteModelToDto(lancamento,dto);
-//	}
+	@Override
+	public LancamentoDto update(Long id, LancamentoDto dto) {
+		Lancamento lancamento = this.findById(id);
+
+		if(Objects.isNull(lancamento)) { throw new EmptyResultDataAccessException(1); }
+
+		lancamento = (Lancamento) Converter.converteDtoToModel(dto,lancamento,"id");
+		lancamento.setCategoria((Categoria) Converter.converteDtotoModel(dto.getCategoria(),lancamento.getCategoria()));
+		lancamento.setPessoa((Pessoa) Converter.converteDtotoModel(dto.getPessoa(),lancamento.getPessoa()));
+		this.save(lancamento);
+
+		return (LancamentoDto) Converter.converteModelToDto(lancamento,dto);
+	}
 //
 //	@Override
 //	public LancamentoDto update(Long id, Boolean ativo) {

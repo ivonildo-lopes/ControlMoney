@@ -33,7 +33,15 @@ public class CategoriaServiceImpl implements CategoriaService {
 		if(Objects.isNull(id)) {
 			throw new BadValueException("Favor informe o id da categoria");
 		}
-		return this.dao.findOne(id);
+
+		Categoria categoria = this.dao.findOne(id);
+
+		if(Objects.isNull(categoria)) {
+			throw new BadValueException("Essa Categoria não existe");
+		}
+		return categoria;
+
+
 	}
 
 	@Override
