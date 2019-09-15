@@ -1,19 +1,15 @@
-package com.algaworks.model;
+package com.algaworks.dto;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
-@Table(name = "pessoas")
-@Entity
-public @Data class Pessoa implements Serializable {
+@Data
+public class PessoaDto implements Serializable {
 
-    @Id
-    @GeneratedValue
     private Long id;
 
     @NotEmpty(message = "O nome é obrigatório")
@@ -23,6 +19,5 @@ public @Data class Pessoa implements Serializable {
     @NotNull(message = "Favor informar se a pessoa ativa")
     private Boolean ativo;
 
-    @Embedded
-    private Endereco endereco;
+    private EnderecoDto endereco;
 }

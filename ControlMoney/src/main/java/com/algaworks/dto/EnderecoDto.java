@@ -1,12 +1,9 @@
-package com.algaworks.model;
+package com.algaworks.dto;
 
 import lombok.Data;
-
-import javax.persistence.Embeddable;
 import java.io.Serializable;
 
-@Embeddable
-public @Data class Endereco implements Serializable {
+public @Data class EnderecoDto implements Serializable {
 
     private String logradouro;
     private String numero;

@@ -107,7 +107,6 @@ public class CategoriaServiceImpl implements CategoriaService {
 		}
 
 		Converter.converteDtoToModel(categoriaDto,categoria,"id");
-//		this.dao.saveAndFlush(categoria);
 		this.save(categoria);
 
 		return (CategoriaDto) Converter.converteModelToDto(categoria,categoriaDto);

@@ -33,7 +33,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                                                                   HttpHeaders headers, HttpStatus status, WebRequest request) {
 
        LOGGER.error(" =============== Cliente passando campos desconhecido ==========================");
-        Object obj =  ResponseDto.response(ex.getCause().getMessage(),HttpStatus.BAD_REQUEST,"Cliente passando campos desconhecidos");
+        Object obj =  ResponseDto.response(ex.getCause() != null ? ex.getCause().getMessage() : ex.toString(),HttpStatus.BAD_REQUEST,"Cliente passando campos desconhecidos");
 
         return handleExceptionInternal(ex, obj, headers, HttpStatus.BAD_REQUEST, request);
     }
@@ -116,5 +116,16 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         Object obj =  ResponseDto.response(ex.toString(),
                 HttpStatus.BAD_REQUEST,ex.getMessage(), Arrays.asList(ex.getMessage()));
         return handleExceptionInternal(ex, obj, null, HttpStatus.BAD_REQUEST, request);
+    }
+
+    @ExceptionHandler({NoContentException.class})
+    public ResponseEntity<Object> handleNoContentException(NoContentException ex,
+                                                          WebRequest request) {
+
+        LOGGER.error(" =============== No content request front ==========================");
+
+        Object obj =  ResponseDto.response(ex.toString(),
+                HttpStatus.NO_CONTENT,ex.getMessage(), Arrays.asList(ex.getMessage()));
+        return handleExceptionInternal(ex, obj, null, HttpStatus.NO_CONTENT, request);
     }
 }

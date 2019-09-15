@@ -1,5 +1,6 @@
 package com.algaworks.resource;
 
+import com.algaworks.dto.PessoaDto;
 import com.algaworks.dto.ResponseDto;
 import com.algaworks.event.ResourceCriadoEvent;
 import com.algaworks.model.Pessoa;
@@ -13,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Objects;
 
 @RestController
 @RequestMapping(value = "/pessoas")
@@ -28,13 +28,7 @@ public class PessoaResource implements Serializable {
 	
 	@GetMapping(value = "/")
 	public ResponseDto findAll(HttpServletResponse response) {
-
 		List<Pessoa> pessoas = this.service.findAll();
-
-		if(Objects.isNull(pessoas) || pessoas.isEmpty()) {
-			response.setStatus(HttpStatus.NO_CONTENT.value());
-			return ResponseDto.response(pessoas,HttpStatus.NO_CONTENT,"Nenhuma pessoa encontrada!");
-		}
 		return ResponseDto.response(pessoas,HttpStatus.OK,"Lista de Todas as pessoas");
 	}
 
@@ -42,51 +36,33 @@ public class PessoaResource implements Serializable {
 	public ResponseDto findById(@PathVariable Long id, HttpServletResponse response) {
 
 		Pessoa pessoa = this.service.findById(id);
-
-		if(Objects.isNull(pessoa)) {
-			return ResponseDto.response(pessoa,HttpStatus.NO_CONTENT,"Nenhuma Pessoa encontrada!");
-		}
-
 		return ResponseDto.response(pessoa,HttpStatus.OK,"Pessoa encontrada: " + pessoa.getNome());
 	}
 
 	@PostMapping(value = "/")
 	public ResponseDto save(@Valid @RequestBody Pessoa pessoa, HttpServletResponse response) {
 
-		if(Objects.isNull(pessoa)) {
-			return ResponseDto.response(pessoa,HttpStatus.NO_CONTENT,"Informe uma pessoa");
-		}
-
 		Pessoa pes = this.service.save(pessoa);
-
-		if(Objects.isNull(pes)) {
-			return ResponseDto.response(pessoa,HttpStatus.NO_CONTENT,"Essa pessoa já existe");
-		}
-
 		this.publisher.publishEvent(new ResourceCriadoEvent(this,response,pes.getId()));
 		return ResponseDto.response(pes,HttpStatus.CREATED,"Pessoa criada com sucesso: " + pes.getNome());
-	}
-
-	@PostMapping(value = "/all")
-	public ResponseDto saveAll(@RequestBody List<Pessoa> pessoas) {
-
-		if(Objects.isNull(pessoas)) {
-			return ResponseDto.response(null,HttpStatus.NO_CONTENT,"Informe as pessoas");
-		}
-
-		try {
-			this.service.saveAll(pessoas);
-			return ResponseDto.response(null,HttpStatus.CREATED,"Pessoas criadas com sucesso: ");
-		}catch (Exception e) {
-			return ResponseDto.response(null,HttpStatus.NO_CONTENT,"Erro ao tentar salvar pessoas");
-		}
-
 	}
 
 	@DeleteMapping(value = "/{id}")
 	public ResponseDto delete(@PathVariable Long id, HttpServletResponse response) {
 		this.service.delete(id);
 		return ResponseDto.response(null,HttpStatus.NO_CONTENT,"Pessoa deletada");
+	}
+
+	@PutMapping(value = "/{id}")
+	public ResponseDto update(@Valid @PathVariable Long id, @RequestBody PessoaDto pessoa, HttpServletResponse response) {
+		PessoaDto pessoaDto = this.service.update(id, pessoa);
+		return ResponseDto.response(pessoaDto,HttpStatus.OK,"Pessoa atualizada");
+	}
+
+	@PutMapping(value = "/{id}/ativo")
+	public ResponseDto updateParcial(@Valid @PathVariable Long id, @RequestBody Boolean ativo, HttpServletResponse response) {
+		PessoaDto pessoaDto = this.service.update(id, ativo);
+		return ResponseDto.response(pessoaDto,HttpStatus.OK,"Pessoa atualizada");
 	}
 
 }
