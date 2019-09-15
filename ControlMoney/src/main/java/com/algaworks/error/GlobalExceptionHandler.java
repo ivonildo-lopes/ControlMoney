@@ -1,13 +1,17 @@
 package com.algaworks.error;
 
 import com.algaworks.dto.ResponseDto;
+import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.transaction.TransactionSystemException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -16,10 +20,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import javax.validation.ConstraintViolationException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @RestControllerAdvice
@@ -33,9 +34,22 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                                                                   HttpHeaders headers, HttpStatus status, WebRequest request) {
 
        LOGGER.error(" =============== Cliente passando campos desconhecido ==========================");
-        Object obj =  ResponseDto.response(ex.getCause() != null ? ex.getCause().getMessage() : ex.toString(),HttpStatus.BAD_REQUEST,"Cliente passando campos desconhecidos");
 
-        return handleExceptionInternal(ex, obj, headers, HttpStatus.BAD_REQUEST, request);
+        Collection<Object> propriedadesErro = getPropriedadeErro(ex);
+        List<String> camposAceitos = propriedadesErro.stream().map(campo -> campo.toString()).collect(Collectors.toList());
+
+        String camposNaoAceito = ((UnrecognizedPropertyException) ExceptionUtils.getRootCause(ex)).getPropertyName();
+
+        List<String> eros = Arrays.asList("Campos não aceitos: " +camposNaoAceito, "Campos aceitos: " + camposAceitos);
+
+        ResponseDto res =  ResponseDto.response(ex.getCause() != null ? ex.getCause().getMessage() : ex.toString(),
+                HttpStatus.BAD_REQUEST,"Passando campo desconhecido: " + camposNaoAceito, eros);
+
+        return handleExceptionInternal(ex, res, headers, HttpStatus.BAD_REQUEST, request);
+    }
+
+    private Collection<Object> getPropriedadeErro(HttpMessageNotReadableException ex) {
+        return ((UnrecognizedPropertyException) ExceptionUtils.getRootCause(ex)).getKnownPropertyIds();
     }
 
     @Override
@@ -68,7 +82,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
         String msgError = "";
 
-        if(Objects.nonNull(ex.getMessage())) { msgError = ex.toString(); }
+        if(Objects.nonNull(ex.getMessage())) { msgError = ExceptionUtils.getRootCauseMessage(ex); }
 
         LOGGER.error(" =============== Objeto não encontrado ==========================");
         Object obj =  ResponseDto.response(msgError,HttpStatus.NOT_FOUND,
@@ -107,6 +121,21 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return handleExceptionInternal(ex, obj, null, HttpStatus.BAD_REQUEST, request);
     }
 
+    @ExceptionHandler({DataIntegrityViolationException.class, TransactionSystemException.class})
+    public ResponseEntity<Object> handleDataIntegrityViolationException(DataIntegrityViolationException ex,
+                                                                        WebRequest request) {
+
+        LOGGER.error(" =============== DataIntegrityViolationException==========================");
+
+        Object obj =  ResponseDto.response(ExceptionUtils.getRootCauseMessage(ex),
+                HttpStatus.NO_CONTENT,ex.getMessage(), Arrays.asList(ex.getMessage()));
+        return handleExceptionInternal(ex, obj, null, HttpStatus.NO_CONTENT, request);
+    }
+
+    /**
+     * EXCEÇÕES PERSONALIZADAS
+     **/
+
     @ExceptionHandler({BadValueException.class})
     public ResponseEntity<Object> handleBadValueException(BadValueException ex,
                                                                      WebRequest request) {
@@ -128,4 +157,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 HttpStatus.NO_CONTENT,ex.getMessage(), Arrays.asList(ex.getMessage()));
         return handleExceptionInternal(ex, obj, null, HttpStatus.NO_CONTENT, request);
     }
+
+
+
 }
