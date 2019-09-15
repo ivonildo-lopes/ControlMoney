@@ -12,7 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.transaction.TransactionSystemException;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -35,17 +34,24 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
        LOGGER.error(" =============== Cliente passando campos desconhecido ==========================");
 
-        Collection<Object> propriedadesErro = getPropriedadeErro(ex);
-        List<String> camposAceitos = propriedadesErro.stream().map(campo -> campo.toString()).collect(Collectors.toList());
+        List<String> camposAceitos = getCamposAceitos(ex);
 
-        String camposNaoAceito = ((UnrecognizedPropertyException) ExceptionUtils.getRootCause(ex)).getPropertyName();
+        String camposNaoAceito = getErrorRoot(ex).getPropertyName();
 
-        List<String> eros = Arrays.asList("Campos não aceitos: " +camposNaoAceito, "Campos aceitos: " + camposAceitos);
+        List<String> erros = Arrays.asList("Campos não aceitos: " +camposNaoAceito, "Campos aceitos: " + camposAceitos);
 
         ResponseDto res =  ResponseDto.response(ex.getCause() != null ? ex.getCause().getMessage() : ex.toString(),
-                HttpStatus.BAD_REQUEST,"Passando campo desconhecido: " + camposNaoAceito, eros);
+                HttpStatus.BAD_REQUEST,"Passando campo desconhecido: " + camposNaoAceito, erros);
 
         return handleExceptionInternal(ex, res, headers, HttpStatus.BAD_REQUEST, request);
+    }
+
+    private UnrecognizedPropertyException getErrorRoot(HttpMessageNotReadableException ex) {
+        return (UnrecognizedPropertyException) ExceptionUtils.getRootCause(ex);
+    }
+
+    private List<String> getCamposAceitos(HttpMessageNotReadableException ex) {
+        return getPropriedadeErro(ex).stream().map(campo -> campo.toString()).collect(Collectors.toList());
     }
 
     private Collection<Object> getPropriedadeErro(HttpMessageNotReadableException ex) {
@@ -56,24 +62,16 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
                                                                   HttpHeaders headers, HttpStatus status, WebRequest request) {
 
-        List<String> errosParaDesenvolvedor = new ArrayList<>();
         LOGGER.error(" =============== Campos do Modelo que não passaram na validação ==========================");
-        for (FieldError erro: ex.getBindingResult().getFieldErrors() ) {
-            errosParaDesenvolvedor.add(erro.toString());
-        }
+        List<String> errosParaDesenvolvedor = ex.getBindingResult().getFieldErrors().stream()
+                .map(e -> e.toString()).collect(Collectors.toList());
 
         List<String> errosParaUsuario = ex.getBindingResult().getFieldErrors().stream()
                 .map(e -> e.getDefaultMessage()).collect(Collectors.toList());
-        LOGGER.error(" =============== ERROS ENCONTRADOS ==========================");
 
-        errosParaDesenvolvedor.stream().forEach(e -> {
-            LOGGER.error(e);
-        });
-
-        LOGGER.error(" =============== FIM DOS ERROS ENCONTRADOS ==========================");
-        Object obj =  ResponseDto.response(errosParaDesenvolvedor,
+        ResponseDto res =  ResponseDto.response(errosParaDesenvolvedor,
                 HttpStatus.BAD_REQUEST,"Favor verifique todos os campos com validação",errosParaUsuario);
-        return handleExceptionInternal(ex, obj, headers, HttpStatus.BAD_REQUEST, request);
+        return handleExceptionInternal(ex, res, headers, HttpStatus.BAD_REQUEST, request);
     }
 
 
@@ -85,24 +83,23 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         if(Objects.nonNull(ex.getMessage())) { msgError = ExceptionUtils.getRootCauseMessage(ex); }
 
         LOGGER.error(" =============== Objeto não encontrado ==========================");
-        Object obj =  ResponseDto.response(msgError,HttpStatus.NOT_FOUND,
-                "Este recurso não foi encontrado");
+        ResponseDto res =  ResponseDto.response(msgError,HttpStatus.NOT_FOUND, "Este recurso não foi encontrado");
 
-        return handleExceptionInternal(ex, obj, null, HttpStatus.NOT_FOUND, request);
+        return handleExceptionInternal(ex, res, null, HttpStatus.NOT_FOUND, request);
     }
 
     @ExceptionHandler({EmptyResultDataAccessException.class})
     public ResponseEntity<Object> handleEmptyResultDataAccessException(EmptyResultDataAccessException ex, WebRequest request) {
 
-        String msgError = "";
-
-        if(Objects.nonNull(ex.getMessage())) { msgError = ex.toString(); }
 
         LOGGER.error(" =============== Objeto não encontrado ==========================");
-        Object obj =  ResponseDto.response(msgError,HttpStatus.NOT_FOUND,
-                "Este recurso não foi encontrado");
 
-        return handleExceptionInternal(ex, obj, null, HttpStatus.NOT_FOUND, request);
+        String msgError = "";
+        if(Objects.nonNull(ex.getMessage())) { msgError = ex.toString(); }
+
+        ResponseDto res =  ResponseDto.response(msgError,HttpStatus.NOT_FOUND, "Este recurso não foi encontrado");
+
+        return handleExceptionInternal(ex, res, null, HttpStatus.NOT_FOUND, request);
     }
 
     @ExceptionHandler({ConstraintViolationException.class})
