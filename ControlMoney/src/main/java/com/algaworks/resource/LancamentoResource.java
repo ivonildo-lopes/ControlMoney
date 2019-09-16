@@ -35,9 +35,15 @@ public class LancamentoResource implements Serializable {
 		return ResponseDto.response(lancamentos,HttpStatus.OK,"Lista de Todas os lancamentos");
 	}
 
-	@GetMapping(value = "/params")
+	@GetMapping(value = "/params2")
 	public ResponseDto findAllFilter(LancamentoFilter filter, Pageable pageable) {
 		Page<LancamentoDto> lancamentos = this.service.findAllFilter(filter, pageable);
+		return ResponseDto.response(lancamentos,HttpStatus.OK,"Lista de Todas os lancamentos");
+	}
+
+	@GetMapping(value = "/params")
+	public ResponseDto findAllFilter(LancamentoFilter filter) {
+		List<LancamentoDto> lancamentos = this.service.findAllFilter(filter);
 		return ResponseDto.response(lancamentos,HttpStatus.OK,"Lista de Todas os lancamentos");
 	}
 

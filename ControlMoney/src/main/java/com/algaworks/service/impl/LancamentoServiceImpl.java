@@ -50,6 +50,17 @@ public class LancamentoServiceImpl implements LancamentoService {
 	}
 
 	@Override
+	public List<LancamentoDto> findAllFilter(LancamentoFilter filter) {
+
+		List<LancamentoDto> lancamentos = this.repository.findAllFilter(filter);
+
+		if(Objects.isNull(lancamentos)) { throw new NoContentException("Nenhuma Lancamento Encontrada!"); }
+
+
+		return lancamentos;
+	}
+
+	@Override
 	public Page<LancamentoDto> findAllFilter(LancamentoFilter filter, Pageable pageable) {
 
 		Page<LancamentoDto> lancamentos = this.repository.findAllFilter(filter,pageable);

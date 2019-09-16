@@ -12,7 +12,7 @@
 
         <result property="valor" column="valor" />
         <result property="observacao" column="observacao" />
-        <!--<result property="tipo" column="tipo" />-->
+        <result property="tipoLancamento" column="tipo" typeHandler="org.apache.ibatis.type.EnumTypeHandler"/>
 
         <collection property="categoria" ofType="com.algaworks.dto.CategoriaDto">
             <id property="id" column="idCategoria"/>
@@ -40,7 +40,7 @@
     <select id="findAllFilter" resultMap="resultListLancamento">
 
         select l.id, l.descricao, l.data_vencimento dataVencimento, l.data_pagamento dataPagamento,
-            l.valor, l.observacao,
+            l.valor, l.observacao, l.tipo,
             c.id idCategoria, c.nome nomeCategoria,
             p.id idPessoa, p.nome nomePessoa, p.ativo,
             p.logradouro, p.numero, p.complemento, p.bairro,p.cep,p.cidade,p.estado
@@ -60,9 +60,6 @@
         <if test="dataVencimentoDe != null and dataVencimentoAte != null">
             and l.data_vencimento BETWEEN #{dataVencimentoDe} AND #{dataVencimentoAte};
         </if>
-
-        order by l.id
-        limit #{primeiroRegistro}, #{totalRegistroPorPagina}
 
     </select>
 

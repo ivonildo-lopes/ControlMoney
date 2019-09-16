@@ -25,6 +25,14 @@ public class LancamentoRepository implements Serializable {
         this.sqlSession = sqlSession;
     }
 
+
+    public List<LancamentoDto> findAllFilter(LancamentoFilter filter) {
+
+       List<LancamentoDto> lista = this.sqlSession.selectList("LancamentoRepository.findAllFilter",filter.filters());
+
+        return lista;
+    }
+
     public Page<LancamentoDto> findAllFilter(LancamentoFilter filter, Pageable pageable) {
 
         Map<String, Object> filter2 = new HashMap();
@@ -37,6 +45,11 @@ public class LancamentoRepository implements Serializable {
         filter2.put("paginaAtual",paginaAtual);
         filter2.put("totalRegistroPorPagina",totalRegistroPorPagina);
         filter2.put("primeiroRegistro",primeiroRegistro);
+
+        /**
+         * TO DO VERIFICAR FILTRO POR DATA
+         */
+
 
         List<LancamentoDto> lista = this.sqlSession.selectList("LancamentoRepository.findAllFilter",filter2);
 

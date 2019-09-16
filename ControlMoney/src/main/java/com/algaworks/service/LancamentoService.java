@@ -11,6 +11,7 @@ import java.util.List;
 public interface LancamentoService {
 	
 	 List<Lancamento> findAll();
+	 List<LancamentoDto> findAllFilter(LancamentoFilter filter);
 	 Page<LancamentoDto> findAllFilter(LancamentoFilter filter, Pageable pageable);
 
 	 Lancamento findById(Long id);
