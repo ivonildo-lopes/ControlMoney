@@ -17,7 +17,7 @@ public class SwaggerConfig {
     public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .tags(new Tag("Address Entity", "Repository for Address entities"))
-                .apiInfo(new ApiInfo("Documentação API", "REST API of the Customer Service", "v0.0.1", null, null, null,
+                .apiInfo(new ApiInfo("Documentação API: ", "REST API of the Customer Service", "v0.0.1", null, null, null,
                         null, Lists.newArrayList()));
     }
 }
