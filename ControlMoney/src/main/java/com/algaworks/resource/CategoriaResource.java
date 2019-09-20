@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import com.algaworks.service.CategoriaService;
@@ -32,6 +33,7 @@ public class CategoriaResource implements Serializable {
 	private ApplicationEventPublisher publisher;
 	
 	@GetMapping(value = "/")
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_CATEGORIA')")
 	public ResponseDto findAll(HttpServletResponse response) {
 
 		List<Categoria> categorias = this.service.findAll();
@@ -44,6 +46,7 @@ public class CategoriaResource implements Serializable {
 	}
 
 	@GetMapping(value = "/{id}")
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_CATEGORIA')")
 	public ResponseDto findById(@PathVariable Long id, HttpServletResponse response) {
 
 		Categoria categoria = this.service.findById(id);
@@ -56,6 +59,7 @@ public class CategoriaResource implements Serializable {
 	}
 
 	@PostMapping(value = "/")
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_CATEGORIA')")
 	public ResponseDto save(@Valid @RequestBody Categoria categoria, HttpServletResponse response) {
 
 		if(Objects.isNull(categoria)) {
@@ -77,6 +81,7 @@ public class CategoriaResource implements Serializable {
 	}
 
 	@PostMapping(value = "/all")
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_CATEGORIA')")
 	public ResponseDto saveAll(@RequestBody List<Categoria> categorias) {
 
 		if(Objects.isNull(categorias)) {
@@ -92,12 +97,14 @@ public class CategoriaResource implements Serializable {
 	}
 
 	@DeleteMapping(value = "/{id}")
+	@PreAuthorize("hasAuthority('ROLE_DELETAR_CATEGORIA')")
 	public ResponseDto delete(@PathVariable Long id, HttpServletResponse response) {
 			this.service.delete(id);
 			return ResponseDto.response(null,HttpStatus.NO_CONTENT,"Categoria deletada: ");
 	}
 
 	@DeleteMapping(value = "/")
+	@PreAuthorize("hasAuthority('ROLE_DELETAR_CATEGORIA')")
 	public ResponseDto deleteAll(@RequestBody List<Long> ids, HttpServletResponse response) {
 		try {
 			this.service.deleteAll(ids);
@@ -108,6 +115,7 @@ public class CategoriaResource implements Serializable {
 	}
 
 	@PutMapping(value = "/{id}")
+	@PreAuthorize("hasAuthority('ROLE_ATUALIZAR_CATEGORIA')")
 	public ResponseDto update(@Valid @PathVariable Long id, @RequestBody CategoriaDto categoriaDto, HttpServletResponse response) {
 		CategoriaDto categoria = this.service.update(id, categoriaDto);
 		return ResponseDto.response(categoria,HttpStatus.OK,"Categoria atualizada");
