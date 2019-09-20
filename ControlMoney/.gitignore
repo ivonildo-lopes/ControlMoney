@@ -5,6 +5,9 @@ target/
 !**/src/test/**
 
 .metadata/
+/metadata/
+.metadata/**
+/metadata/**
 
 ### STS ###
 .apt_generated
@@ -19,6 +22,10 @@ target/
 *.idea
 .idea/workspace.xml
 .idea/**
+.idea/
+/idea/**
+/idea/
+idea/
 *.iws
 *.iml
 *.ipr
