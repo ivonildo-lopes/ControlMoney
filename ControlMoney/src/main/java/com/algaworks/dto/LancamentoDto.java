@@ -38,4 +38,8 @@ public @Data class LancamentoDto implements Serializable {
 
     @NotNull(message = "Favor informar a pessoa")
     private PessoaDto pessoa;
+
+    private String nomePessoa;
+
+    private String nomeCategoria;
 }

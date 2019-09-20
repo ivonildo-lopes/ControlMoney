@@ -14,6 +14,9 @@
         <result property="observacao" column="observacao" />
         <result property="tipoLancamento" column="tipo" typeHandler="org.apache.ibatis.type.EnumTypeHandler"/>
 
+        <result property="nomePessoa" column="nomePessoa1" />
+        <result property="nomeCategoria" column="nomeCategoria1" />
+
         <collection property="categoria" ofType="com.algaworks.dto.CategoriaDto">
             <id property="id" column="idCategoria"/>
             <result property="nome" column="nomeCategoria"/>
@@ -41,8 +44,8 @@
 
         select l.id, l.descricao, l.data_vencimento dataVencimento, l.data_pagamento dataPagamento,
             l.valor, l.observacao, l.tipo,
-            c.id idCategoria, c.nome nomeCategoria,
-            p.id idPessoa, p.nome nomePessoa, p.ativo,
+            c.id idCategoria, c.nome nomeCategoria, c.nome nomeCategoria1,
+            p.id idPessoa, p.nome nomePessoa, p.ativo, p.nome nomePessoa1,
             p.logradouro, p.numero, p.complemento, p.bairro,p.cep,p.cidade,p.estado
         from lancamentos l
         JOIN categorias c on l.id_categoria = c.id

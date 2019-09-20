@@ -1,6 +1,7 @@
 package com.algaworks.resource;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/tokens")
 public class TokenResource {
 
+    @DeleteMapping(value = "/revoke")
     public void revoke(HttpServletRequest request, HttpServletResponse response) {
         Cookie cookie = new Cookie("refreshToken", null);
         cookie.setHttpOnly(true);
