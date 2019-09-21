@@ -13,3 +13,7 @@ estado varchar(50) null
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+insert into pessoas (nome, ativo,logradouro,numero,complemento,bairro,cep,cidade,estado) values('ivonildo', true,"tv congo","42","sem info","antonio bezerra","60360450","fortaleza","ce");
+insert into pessoas (nome, ativo,logradouro,numero,complemento,bairro,cep,cidade,estado) values('kassia', true,"tv congo","42","sem info","antonio bezerra","60360450","fortaleza","ce");
+insert into pessoas (nome, ativo,logradouro,numero,complemento,bairro,cep,cidade,estado) values('henry', true,"tv congo","42","sem info","antonio bezerra","60360450","fortaleza","ce");
+insert into pessoas (nome, ativo,logradouro,numero,complemento,bairro,cep,cidade,estado) values('neide', true,"tv congo","42","sem info","antonio bezerra","60360450","fortaleza","ce");
