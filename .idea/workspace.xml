@@ -15,7 +15,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="application-prod.properties" pinned="false" current-in-tab="true">
+      <file leaf-file-name="application-prod.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/resources/application-prod.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
@@ -35,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ControlMoney/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1995">
-              <caret line="133" column="20" lean-forward="false" selection-start-line="133" selection-start-column="20" selection-end-line="133" selection-end-column="20" />
+            <state relative-caret-position="317">
+              <caret line="147" column="21" lean-forward="false" selection-start-line="147" selection-start-column="21" selection-end-line="147" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -130,7 +130,6 @@
         <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/resource/LancamentoResource.java" />
         <option value="$PROJECT_DIR$/ControlMoney/src/main/resources/mappers/LancamentoMapper.xml" />
         <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/config/SecurityConfig.java" />
-        <option value="$PROJECT_DIR$/ControlMoney/pom.xml" />
         <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/config/AuthorizationServerConfig.java" />
         <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/config/token/RefreshTokenPreProcessor.java" />
         <option value="$PROJECT_DIR$/ControlMoney/src/main/java/com/algaworks/config/token/RefreshTokenPreProcessorFilter.java" />
@@ -150,6 +149,7 @@
         <option value="$PROJECT_DIR$/ControlMoney/.gitignore" />
         <option value="$PROJECT_DIR$/ControlMoney/src/main/resources/application-prod.properties" />
         <option value="$PROJECT_DIR$/ControlMoney/Procfile" />
+        <option value="$PROJECT_DIR$/ControlMoney/pom.xml" />
       </list>
     </option>
   </component>
@@ -452,7 +452,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157367000" />
+    <option name="totallyTimeSpent" value="158257000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -969,18 +969,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ControlMoney/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1995">
-          <caret line="133" column="20" lean-forward="false" selection-start-line="133" selection-start-column="20" selection-end-line="133" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/resources/application-dev.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/resources/application-prod.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="50" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="50" />
           <folding />
         </state>
       </provider>
@@ -993,10 +993,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ControlMoney/src/main/resources/application-prod.properties">
+    <entry file="file://$PROJECT_DIR$/ControlMoney/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="50" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="50" />
+        <state relative-caret-position="317">
+          <caret line="147" column="21" lean-forward="false" selection-start-line="147" selection-start-column="21" selection-end-line="147" selection-end-column="21" />
           <folding />
         </state>
       </provider>
