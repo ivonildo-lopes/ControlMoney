@@ -1,5 +1,6 @@
 package com.algaworks.config;
 
+import com.algaworks.config.token.CustomTokenEnhancer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,10 +11,14 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.AccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.TokenEnhancer;
+import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
+
+import java.util.Arrays;
 
 @Configuration
 @EnableAuthorizationServer
@@ -41,8 +46,14 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+
+        // adicionando o nome do usuario logado no token
+        TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
+        tokenEnhancerChain.setTokenEnhancers(Arrays.asList(getTokenEnhancer(), accessTokenConverter()));
+
         endpoints
                 .tokenStore(this.tokenStore())
+                .tokenEnhancer(tokenEnhancerChain)
                 .accessTokenConverter(accessTokenConverter())
                 .reuseRefreshTokens(false)
                 .authenticationManager(authenticationManager);
@@ -50,6 +61,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Bean
     public JwtAccessTokenConverter accessTokenConverter() {
+
         JwtAccessTokenConverter accessTokenConverter = new JwtAccessTokenConverter();
         accessTokenConverter.setSigningKey("algamoney");
         return accessTokenConverter;
@@ -59,6 +71,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public TokenStore tokenStore() {
 
         return new JwtTokenStore(accessTokenConverter());
+    }
+
+    @Bean
+    public TokenEnhancer getTokenEnhancer(){
+        return new CustomTokenEnhancer();
     }
 
     @Override

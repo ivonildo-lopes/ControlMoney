@@ -23,9 +23,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-
+        /**
+         * spring é o reponsavel por fazer a autenticação
+         */
         Usuario usuario = this.service.findByEmail(email);
-        return new User(email, usuario.getSenha(), getPermissoes(usuario));
+//        return new User(email, usuario.getSenha(), getPermissoes(usuario));
+        return new UsuarioSistema(usuario,getPermissoes(usuario));
     }
 
     private Collection<? extends GrantedAuthority> getPermissoes(Usuario usuario) {
